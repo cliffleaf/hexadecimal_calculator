@@ -22,7 +22,9 @@ def hex_arithmetic(hex_num1, operator, hex_num2):
         return "invalid operator"
     
     answer_in_hex = hex(answer_in_deci)
-    answer_in_hex = answer_in_hex[2:].upper()
+    x_index = answer_in_hex.find("x")
+
+    answer_in_hex = answer_in_hex[:x_index-1] + answer_in_hex[x_index+1:].upper()
 
     return answer_in_hex
 
