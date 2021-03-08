@@ -6,20 +6,24 @@ def hex_arithmetic(hex_num1, operator, hex_num2):
     hex_num2 = hex_num2.strip()
     operator = operator.strip()
 
-    if operator == "+":
-        answer_in_deci = int(hex_num1, 16) + int(hex_num2, 16)
-    elif operator == "-":
-        answer_in_deci = int(hex_num1, 16) - int(hex_num2, 16)
-    elif operator == "*":
-        answer_in_deci = int(hex_num1, 16) * int(hex_num2, 16)
-    elif operator == "/":
-        answer_in_deci = int(hex_num1, 16) / int(hex_num2, 16)
+    try:
+        if operator == "+":
+            answer_in_deci = int(hex_num1, 16) + int(hex_num2, 16)
+        elif operator == "-":
+            answer_in_deci = int(hex_num1, 16) - int(hex_num2, 16)
+        elif operator == "*":
+            answer_in_deci = int(hex_num1, 16) * int(hex_num2, 16)
+        elif operator == "/":
+            answer_in_deci = int(hex_num1, 16) / int(hex_num2, 16)
 
-    elif operator == "**":
-        answer_in_deci = int(hex_num1, 16) ** int(hex_num2, 16)
+        elif operator == "**":
+            answer_in_deci = int(hex_num1, 16) ** int(hex_num2, 16)
+            
+        else:
+            return "invalid operator"
         
-    else:
-        return "invalid operator"
+    except ValueError:
+        return "invalid number"
     
     answer_in_hex = hex(answer_in_deci)
     x_index = answer_in_hex.find("x")
